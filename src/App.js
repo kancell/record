@@ -4,11 +4,13 @@ import AppHeader from './App-header.js'
 import AppBody from './App-body.js'
 import './App.css';
 
+
+
 function App() {
 	return (
 		<div className="App">
 			<AppHeader></AppHeader>
-			<AppBody></AppBody>
+			<AppBody></AppBody>				
 		</div>
 	);
 }
