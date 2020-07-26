@@ -1,0 +1,138 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    flex-grow: 1;
+    margin-top: 0.5vh;
+  }
+  .nav-contain {
+    display: flex;
+    width: 98vw;
+    height: 90vh;
+    flex-direction: column;
+    box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
+    padding: 10px;
+    background: center url(./人共生城市-冬.png) no-repeat;
+    background-size: cover;
+  }
+  .nav-contain h2 {
+    display: flex;
+    color: #fff;
+    font-family: 'BlocExtCond';
+    font-weight: 300;
+    margin: 0;
+  }
+  .nav-contain .navs {
+    display: flex;
+    
+  }
+  .nav-label {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    position: relative;
+    line-height: 80px;
+    background: transparent url(./threat.png) center center no-repeat;
+    background-size: cover;
+    animation: flow 1.6s infinite ease-in-out alternate;
+    /*background-color: rgba(255,255,255,0.6);
+    clip-path: circle(40px at 40px 40px);*/
+  }
+  @keyframes flow {
+    from {
+      width: 80px;
+      height: 80px;
+    }
+    to {
+      width: 83px;
+      height: 83px;
+    }
+  }
+  .nav-label .link a{
+    font-family: 'BlocExtCond';
+    font-size: calc(9px + 1vmin);
+    font-weight: 300;
+    text-decoration:none;
+    color: #8590a6;
+  }
+
+  .bird {
+    position: fixed;
+    height: 50vh;
+    width: 50vw;
+    left: 25%;
+    top: 25%;
+  }
+  .range {
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+  }
+  .bird li:nth-of-type(1) { 
+    background-color: black;
+    clip-path: polygon(43.576% 5.071%, 35.376% 10.5%, 52.676% 9.643%);
+  }
+  .bird li:nth-of-type(2) {
+    clip-path: polygon(35.376% 10.5%, 42.176% 15.071%, 52.676% 9.5%);
+    background-color: #75614B; 
+  }
+  .bird li:nth-of-type(3) {
+    clip-path: polygon(35.376% 10.5%, 32.976% 23.357%, 42.176% 15.071%);
+    background-color: #B1A799;
+  }
+  .bird li:nth-of-type(4) {
+    clip-path: polygon(42.176% 15.071%, 52.676% 9.5%, 54.976% 21.071%);
+    background-color: #BCAEA5;
+  }
+  .bird li:nth-of-type(5) {
+    clip-path: polygon(35.976% 11.786%, 41.176% 11.786%, 42.276% 15.071%);
+    background-color: #D3CBC7;
+  }
+  .bird li:nth-of-type(6) {
+    clip-path: polygon(42.176% 15.071%, 43.376% 11.643%, 48.776% 12.5%);
+    background-color: #D3CBC7;
+  }
+  .bird li:nth-of-type(7) {
+    clip-path: polygon(32.976% 23.214%, 42.176% 15.071%, 41.776% 23.5%);
+    background-color: #A09086;
+  }
+  .bird li:nth-of-type(8) {
+    clip-path: polygon(42.176% 15.071%, 41.776% 23.5%, 54.976% 21.071%);
+    background-color: #5B5852;
+  }
+  .bird li:nth-of-type(9) {
+    clip-path: polygon(42.176% 15.214%, 40.476% 19.357%, 41.776% 23.5%);
+    background-color: #D2B253;
+  }
+  .bird li:nth-of-type(10) {
+    clip-path: polygon(42.176% 15.214%, 41.676% 23.357%, 43.876% 19.5%);
+    background-color: #937428;
+  }
+  .bird li:nth-of-type(11) {
+    clip-path: polygon( 87% 50%, 89% 46%, 89.7% 51%);
+    background-color: #05A6BA;
+  }  
+  .bird li:nth-of-type(12) {
+    clip-path: polygon(82% 42%, 87% 50%, 89% 46%);
+    background-color: #2BB5C2;
+  }
+  .bird li:nth-of-type(13) {
+    clip-path: polygon(82% 42%, 82.9% 57%, 87% 50%);
+    background-color: #62CAD5;
+  }
+  .bird li:nth-of-type(14) {
+    clip-path: polygon(75% 52%, 82% 42%, 82.9% 57%);
+    background-color: #06A0B8;
+  }
+  .bird li:nth-of-type(15) {
+    clip-path: polygon(55% 70%, 75% 52%, 82.9% 57%);
+    background-color: #60C4D3;
+  }
+  .bird li:nth-of-type(16) {
+    clip-path: polygon(55% 70%, 80.2% 65%, 82.9% 57%);
+    background-color: #36B4C2;
+  } 
+  .bird li:nth-of-type(17) {
+    clip-path: polygon(75% 52%, 61% 65%, 60% 38%);
+    background-color: #33B5C3
+  }  
