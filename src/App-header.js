@@ -12,7 +12,8 @@ function AppHeader() {
                 <div className="header-left">
                     <div>       
                         <div className="header-hover"><Link to="/">场景导航</Link></div>
-                        <div className="header-hover"><Link to="/b">瀑流图库</Link></div>           
+                        <div className="header-hover"><Link to="/b">瀑流图库</Link></div>
+                        <div className="header-hover"><Link to="/c">信息</Link></div>           
                     </div>
                     <div className="header-search">
                         <input type = "text" placeholder="搜索感兴趣的内容..."/>
