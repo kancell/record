@@ -1,6 +1,7 @@
   .nav {
     display: flex;
     justify-content: center;
+    flex-direction: row-reverse;
     width: 100vw;
     flex-grow: 1;
     margin-top: 0.5vh;
@@ -8,12 +9,13 @@
   .nav-contain {
     display: flex;
     width: 98vw;
-    height: 90vh;
+    height: 93vh;
     flex-direction: row;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
-    padding: 10px;
+    padding-left: 1vw;
     background: center url(./人共生城市-冬.png) no-repeat;
     background-size: cover;
+    transform: translate3d(0px, 0px, 0px); transition: all 1000ms ease;
   }
   .nav-contain h2 {
     color: #fff;
@@ -84,11 +86,13 @@
   }
   .bird-tips {
     position: fixed;
-    left: 80%;
-    top: 13%;
+    left: 82%;
+    top: 6%;
   }
   .bird-button {
     position: fixed;
+    outline: none;
+    border: none;
     display: none;
     left: 86%;
     top: 37%;
@@ -99,13 +103,16 @@
     line-height: 80px;
     background: transparent url(./threat.png) center center no-repeat;
     background-size: cover;
-
   }
-
+  .bird-button:active{
+    width: 71px;
+    height: 71px;
+    transition: all 0.31s;
+  }
   .bird {
     position: fixed;
-    width: 34%;
-    height: 33%;
+    width: 40%;
+    height: 80%;
     left: 78%;
     top: 10%;
   }
