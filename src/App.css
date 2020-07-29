@@ -31,9 +31,12 @@ body {
 }
 
 .App-header {
+  width: 100vw;
   background-color: #fff;
   min-height: 6vh;
+  position: fixed;
   display: flex;
+  opacity: 0;
   flex-direction: row;
   flex-grow: 1;
   align-items: center;
@@ -41,6 +44,10 @@ body {
   font-size: calc(6px + 1vmin);
   color: #8590a6;
   box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  transition: all 500ms ease;
+}
+.App-header:hover {
+  opacity: 1;
 }
 .App-header a {
   text-decoration:none;
@@ -89,7 +96,7 @@ body {
   justify-content: center;
   background-color: #fff;;
   flex-grow: 1;
-  margin-top: 1.5vh;
+  padding-top: 7.5vh;
 }
 .body-contain {
   display: flex;

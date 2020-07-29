@@ -4,18 +4,16 @@
     flex-direction: row-reverse;
     width: 100vw;
     flex-grow: 1;
-    margin-top: 0.5vh;
   }
   .nav-contain {
     display: flex;
-    width: 98vw;
-    height: 93vh;
+    width: 100vw;
+    height: 100vh;
     flex-direction: row;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding-left: 1vw;
-    background: center url(./人共生城市-冬.png) no-repeat;
     background-size: cover;
-    transform: translate3d(0px, 0px, 0px); transition: all 1000ms ease;
+    transition: all 1000ms ease;
   }
   .nav-contain h2 {
     color: #fff;
