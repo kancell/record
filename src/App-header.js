@@ -14,7 +14,7 @@ class AppHeader extends React.Component {
     }
     render () {
         return (
-            <header className="App-header" style={{opacity: this.props.location.pathname === '/b'?1:''}}>
+            <header className={`App-header ${this.props.location.pathname === '/'? 'hide':''}`}>
                 <div className="header-contain">
                     <div className="header-left">
                         <div>       

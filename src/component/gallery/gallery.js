@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './gallery.css';
 
 function Gallery({ name }) {
     if(name != null) {
@@ -15,7 +15,7 @@ function Gallery({ name }) {
         {name: '山雀', key: 8, desribe: '描述'}]
     const listItems = info.map((item) =>
     <article key={item.key}>
-        <img src={require(`../img/${item.key}.jpg`)} alt=""/>
+        <img src={require(`./img/${item.key}.jpg`)} alt=""/>
         <div className="label">
             <span>{item.name}</span>
             <span>{item.desribe}</span>

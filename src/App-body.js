@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 
-import Gallery from './component/gallery.js'
+import Gallery from './component/gallery/gallery.js'
 import Navigation from './component/navigation/navigation.js'
 
 import {

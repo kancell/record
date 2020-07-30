@@ -3,21 +3,15 @@ import birdInfo from './bird1.json';
 import './navigation.css';
 import { Link } from 'react-router-dom';
 
-const info1 = [[{name: '麻雀', info: 'red'},
-{name: '山雀', info: 'red'},
-],[{name: '啄木鸟', info: 'red'},
-{name: '鹰', info: 'red'},
-{name: '海绵', info: 'red'}],[{name: '麻雀', info: 'red'},
-{name: '山雀', info: 'red'},
-],[{name: '麻雀', info: 'red'},
-{name: '山雀', info: 'red'},
+const info1 = [[{name: '麻雀', info: 'red'},{name: '山雀', info: 'red'}],
+[{name: '啄木鸟', info: 'red'},{name: '鹰', info: 'red'},{name: '海绵', info: 'red'}],
+[{name: '鸡', info: 'red'},{name: '鸭子', info: 'red'}],
+[{name: '秃鹫', info: 'red'},{name: '燕', info: 'red'},
 ]]
 
 const polygonBird = birdInfo.map((item) => 
             <li className="range" style={item} key={item.key}></li>
         )
-
-
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -25,7 +19,7 @@ class Navigation extends React.Component {
         this.state = {
             infoShow: 'none',
             tips: '这里可能出现...',
-            backgroundList:[{bg: require('./1.png')},{bg: require('./2.png')},{bg: require('./3.png')},{bg: require('./4.png')}],
+            backgroundList:[{bg: require('./img/1.png')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
             offsetheight:document.documentElement.clientHeight,
             nowIndex:0,           //当前在第几页
             fullPageSlide:false,   
@@ -36,13 +30,13 @@ class Navigation extends React.Component {
     }
     reSearchShow() {
         this.setState({
-            tips: '换一批吗？',
+            tips: '换一批？',
             infoShow: 'block'
         })
     }
     reSearchHide() {
         this.setState({
-            tips: '示意敌人已不见踪迹',
+            tips: '咕咕咕？',
             infoShow: 'none'
         })
     }
