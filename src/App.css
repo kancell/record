@@ -61,6 +61,7 @@ body {
   display: flex;
   flex-direction: row;
   margin: 0 1.5vh;
+  height: 6vh;
   align-items: center;
 } 
 .App-header button{
@@ -81,10 +82,10 @@ body {
   background-color: #f6f6f6;
   border: 1px solid #ebebeb;
 } 
-.App-header .header-hover a:hover {
+.header-hover:hover   {
   color: #0084ff
 }
-.App-header .header-hover a:active {
+.header-hover:active  {
   color: #0c6cc7
 }
 .App-header .header-contain {
