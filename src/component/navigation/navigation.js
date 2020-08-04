@@ -22,7 +22,8 @@ class Navigation extends React.Component {
             backgroundList:[{bg: require('./img/1.png')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
             offsetheight:document.documentElement.clientHeight,
             nowIndex:0,           //当前在第几页
-            fullPageSlide:false,   
+            fullPageSlide:false,
+            timer: null
         }
         this.reSearchShow = this.reSearchShow.bind(this)
         this.reSearchHide = this.reSearchHide.bind(this)
@@ -41,13 +42,14 @@ class Navigation extends React.Component {
         })
     }
     bgScroll() {
+        if (this.timer != null) return;
         (this.state.nowIndex < this.state.backgroundList.length - 1) ?
-        this.setState({
-            nowIndex: this.state.nowIndex + 1
-        }) :
-        this.setState({
-            nowIndex: 0
-        })
+        this.setState({nowIndex: this.state.nowIndex + 1}) :
+        this.setState({nowIndex: 0})     
+        this.timer = setTimeout(()=> {
+            clearTimeout(this.timer)
+            this.timer = null
+        },1000) 
     }
     render() {    
         const navContain = this.state.backgroundList.map((item, index) => 
