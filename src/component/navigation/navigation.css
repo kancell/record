@@ -7,22 +7,16 @@
   }
   .nav-contain {
     display: flex;
-    width: 100vw;
     height: 100vh;
     flex-direction: row;
-    box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
-    padding-left: 1vw;
-    background-size: cover;
+    flex-grow:1;
+    box-shadow: 0 2px 5px 2px rebeccapurple;
     transition: all 1000ms ease;
   }
   .nav-contain h2 {
     color: #fff;
     font-family: 'BlocExtCond';
     font-weight: 300;
-  }
-  .nav-contain .navs {
-    display: flex;
-    
   }
   .nav-list {
     display: flex;
@@ -81,6 +75,16 @@
   .bird-contain {
     display: flex;
     flex-grow: 1;
+  }
+  .bird-contain .index {
+    position: fixed;
+    font-weight: 300;
+    text-decoration:none;
+    color: #fff;
+    font-family: 'BlocExtCond';
+    font-size: calc(9px + 2.4vmin);
+    top: 88%;
+    left: 50%;
   }
   .bird-tips {
     position: fixed;

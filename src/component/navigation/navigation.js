@@ -19,10 +19,10 @@ class Navigation extends React.Component {
         this.state = {
             infoShow: 'none',
             tips: '这里可能出现...',
-            backgroundList:[{bg: require('./img/1.png')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
-            offsetheight:document.documentElement.clientHeight,
-            nowIndex:0,           //当前在第几页
-            fullPageSlide:false,
+            backgroundList: [{bg: require('./img/1.png')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
+            offsetheight: document.documentElement.clientHeight,
+            nowIndex: 0,           //当前在第几页
+            fullPageSlide: false,
             timer: null
         }
         this.reSearchShow = this.reSearchShow.bind(this)
@@ -45,18 +45,22 @@ class Navigation extends React.Component {
         if (this.timer != null) return;
         (this.state.nowIndex < this.state.backgroundList.length - 1) ?
         this.setState({nowIndex: this.state.nowIndex + 1}) :
-        this.setState({nowIndex: 0})     
+        this.setState({nowIndex: 0})
+        /*
+        let ca = this.state.backgroundList.shift()
+        this.state.backgroundList.push(ca)
+       */
         this.timer = setTimeout(()=> {
             clearTimeout(this.timer)
             this.timer = null
         },1000) 
     }
-    render() {    
+    render() {
         const navContain = this.state.backgroundList.map((item, index) => 
             <div className="nav-contain" 
                 style={{background: `center url(${item.bg}) no-repeat`,
-                backgroundSize: 'cover',
-                width: `${index === this.state.nowIndex?'100vw': '0vw'}`}} key={item.bg}>                 
+                paddingLeft: `${index > this.state.nowIndex?'0vw': '0vw'}`,
+                width: `${index === this.state.nowIndex?'100vw': '0vw'}`}} key={index}>                 
                 <div className="nav-list">
                     {index === this.state.nowIndex ? info1[this.state.nowIndex].map((item) => 
                         <div className="nav-label" key={item.name}>
@@ -65,21 +69,24 @@ class Navigation extends React.Component {
                             </div>
                         </div>
                     ) : null}
-                </div>        
+                </div>
             </div>
         )
+        const bird = 
+        <div className="bird-contain">
+            <h1 className="index">{this.state.nowIndex + 1}</h1>
+            <div className="bird"  onMouseEnter={this.reSearchShow} onMouseLeave={this.reSearchHide}>
+                <ul>
+                    {polygonBird}
+                </ul>
+                <h2 className="bird-tips">{this.state.tips}</h2>
+                <button className="bird-button" style={{display: this.state.infoShow}} onClick={this.bgScroll}>换一批</button>
+            </div>
+        </div>   
         return (
             <div className="nav">
                 {navContain}
-                <div className="bird-contain">
-                    <div className="bird"  onMouseEnter={this.reSearchShow} onMouseLeave={this.reSearchHide}>
-                        <ul>
-                            {polygonBird}
-                        </ul>
-                        <h2 className="bird-tips">{this.state.tips}</h2>
-                        <button className="bird-button" style={{display: this.state.infoShow}} onClick={this.bgScroll}>换一批</button>
-                    </div>
-                </div>   
+                {bird}
             </div>
         )
     }
