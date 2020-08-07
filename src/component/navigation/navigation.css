@@ -10,7 +10,7 @@
     height: 100vh;
     flex-direction: row;
     flex-grow:1;
-    box-shadow: 0 2px 5px 2px rebeccapurple;
+    box-shadow: 0 2px 5px 2px #fff;
     transition: all 1000ms ease;
   }
   .nav-contain h2 {

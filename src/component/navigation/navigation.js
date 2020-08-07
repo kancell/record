@@ -59,6 +59,7 @@ class Navigation extends React.Component {
         const navContain = this.state.backgroundList.map((item, index) => 
             <div className="nav-contain" 
                 style={{background: `center url(${item.bg}) no-repeat`,
+                backgroundSize: 'auto 100vh',
                 paddingLeft: `${index > this.state.nowIndex?'0vw': '0vw'}`,
                 width: `${index === this.state.nowIndex?'100vw': '0vw'}`}} key={index}>                 
                 <div className="nav-list">
