@@ -49,19 +49,14 @@ body {
   background-color: rgba(0,0,0,0.3);
   opacity: 0.6;
 }
-.App-header:hover {
-  background-color: #fff;
-  opacity: 1;
-}
+
 .App-header a {
   text-decoration:none;
   color: #8590a6;
 }
 .App-header div{
   display: flex;
-  flex-direction: row;
   margin: 0 1.5vh;
-  height: 6vh;
   align-items: center;
 } 
 .App-header button{

@@ -1,0 +1,23 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: auto;
+    border: cornsilk;
+    top:8vh;
+    padding: 0.5vh 1vw;
+    border-radius: 4px;
+    font-size: calc(6px + 1vmin);
+    background-color: #f6f6f6;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    cursor:pointer;
+}
+.user div{
+    padding: 0.5vh;
+}
+.header-right:hover {
+  background-color: #fff;
+  opacity: 1;
+  cursor: pointer;
+}
