@@ -72,6 +72,18 @@
       height: 83px;
     }
   }
+  .bird {
+    position: fixed;
+    width: 40%;
+    height: 80%;
+    left: 78%;
+    top: 10%;
+  }
+  .range {
+    height: 30vmin;
+    width: 45vmin;
+    position: absolute;
+  }
   .bird-contain {
     display: flex;
     flex-grow: 1;
@@ -119,16 +131,5 @@
     height: 71px;
     transition: all 0.31s;
   }
-  .bird {
-    position: fixed;
-    width: 40%;
-    height: 80%;
-    left: 78%;
-    top: 10%;
-  }
-  .range {
-    height: 30vmin;
-    width: 45vmin;
-    position: absolute;
-  }
+
   

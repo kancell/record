@@ -13,7 +13,6 @@ class AppHeader extends React.Component {
         this.state = {
         }
     }
-
     render () {
         return (
             <header className={`App-header ${this.props.location.pathname === '/'? 'hide':''}`}>
@@ -29,7 +28,10 @@ class AppHeader extends React.Component {
                             <button>查询</button>
                         </div>
                     </div>
-                    <User></User>
+                    <div className="header-right">
+                        <User></User>
+                    </div>
+                    
                 </div>
             </header>
         )

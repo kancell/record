@@ -18,10 +18,16 @@ class User extends React.Component {
         this.showLogin = this.showLogin.bind(this)
         this.showUser = this.showUser.bind(this)
         this.loginOut = this.loginOut.bind(this)
+        this.hideAllOut = this.hideAllOut.bind(this)
     }
     showLogin () {
         this.setState({
             loginShow: !this.state.loginShow
+        })
+    }
+    showUser () {
+        this.setState({
+            userShow: !this.state.userShow
         })
     }
     getLoginState (result, msg)  {
@@ -29,14 +35,12 @@ class User extends React.Component {
         this.setState({
             user: msg
         })
+        this.hideAllOut()
+    }
+    hideAllOut() {
         this.setState({
             userShow: false,
             loginShow: false
-        })
-    }
-    showUser () {
-        this.setState({
-            userShow: !this.state.userShow
         })
     }
     loginOut () {
@@ -50,11 +54,11 @@ class User extends React.Component {
         let user
         if (this.state.user === null) {
             user = <React.Fragment>
-                <div className="header-hover" onClick={this.showLogin}>登录</div>
+                <Link><div className="header-hover" onClick={this.showLogin}>登录</div></Link>
                 {login}
             </React.Fragment>
         } else {
-            user =  <React.Fragment>
+            user = <React.Fragment>
                 <Link to="/admin"><div className="header-hover">后台</div></Link>
                 <div className="header-hover" onClick={this.showUser}>
                     {this.state.user?this.state.user.userName:'登录'} 
@@ -68,7 +72,7 @@ class User extends React.Component {
             </React.Fragment>   
         }
         return (
-                <div className="header-right">{user}</div>  
+            <React.Fragment>{user}</React.Fragment>  
         )
     }
 }

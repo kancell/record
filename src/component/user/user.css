@@ -13,11 +13,3 @@
     box-shadow: 0 5px 20px rgba(26,26,26,.1);
     cursor:pointer;
 }
-.user div{
-    padding: 0.5vh;
-}
-.header-right:hover {
-  background-color: #fff;
-  opacity: 1;
-  cursor: pointer;
-}
