@@ -18,7 +18,7 @@ class Login extends React.Component {
         fetch('http://localhost:8080/1', {
             method: 'POST',
             mode: 'cors',
-            body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord}),
+            body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
             headers: {
                 'user-agent': 'Mozilla/4.0 MDN Example',
                 'content-type': 'application/json'
