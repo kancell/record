@@ -6,6 +6,13 @@ import {
   
 import Login from './login.js'
 
+
+//const appContext = React.createContext()
+/*
+<appContext.Consumer>
+{value => value}
+</appContext.Consumer>
+*/
 class User extends React.Component {
     constructor(props) {
         super(props)
@@ -19,6 +26,9 @@ class User extends React.Component {
         this.showUser = this.showUser.bind(this)
         this.loginOut = this.loginOut.bind(this)
         this.hideAllOut = this.hideAllOut.bind(this)
+    }
+    componentDidMount() {
+
     }
     showLogin () {
         this.setState({
@@ -49,26 +59,25 @@ class User extends React.Component {
         })      
     }
     render () {
-        let login = this.state.loginShow ? <Login parent={ this }></Login> : ''
-
         let user
         if (this.state.user === null) {
-            user = <React.Fragment>
-                <Link><div className="header-hover" onClick={this.showLogin}>登录</div></Link>
-                {login}
-            </React.Fragment>
+            user = <React.Fragment>      
+                    <div className="header-hover" onClick={this.showLogin}>登录</div>
+                    {this.state.loginShow ? <Login parent={ this }></Login> : ''}
+                </React.Fragment>
         } else {
             user = <React.Fragment>
                 <Link to="/admin"><div className="header-hover">后台</div></Link>
                 <div className="header-hover" onClick={this.showUser}>
                     {this.state.user?this.state.user.userName:'登录'} 
                 </div> 
-
-                <div className="user" style={{display: this.state.userShow===false?'none':''}}>
-                    <div>通知</div>
-                    <div>资料</div>
-                    <div onClick={this.loginOut}>退出</div>
-                </div> 
+                {this.state.userShow ? <div className="user-contain" onClick={e => this.showUser(e)}>
+                    <div className="user" style={{display: this.state.userShow===false?'none':''}}>
+                        <div>通知</div>
+                        <div>资料</div>
+                        <div onClick={this.loginOut}>退出</div>
+                    </div> 
+                </div> : ''}
             </React.Fragment>   
         }
         return (

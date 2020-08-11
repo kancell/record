@@ -12,6 +12,7 @@ class Login extends React.Component {
         this.login = this.login.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.hideLogin = this.hideLogin.bind(this)
     }
     login() {
         fetch('http://localhost:8080/1', {
@@ -45,15 +46,21 @@ class Login extends React.Component {
             [name]: value
         })
     }
+    hideLogin(e) {
+        if(e.target.className === 'login-contain') {
+            this.props.parent.showLogin(this)
+        }
+    }
     render() {
         return (
-            <div className="login">
-                <form>
-                    <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
-                    <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
-                </form>
-                <button onClick={this.login}>登录</button>
-                <button onClick={this.handleSubmit}>登录2</button>
+            <div className="login-contain" onClick={e => this.hideLogin(e)}>
+                <div className="login">
+                    <form>
+                        <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
+                        <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
+                    </form>
+                    <button onClick={this.login}>登录</button>
+                </div>
             </div>
         )
     }
