@@ -1,6 +1,34 @@
 import React from 'react'
-import './login.css'
+import styled from 'styled-components'
 
+const LoginContain = styled.div`
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    bottom:0;
+    left:0px;
+    z-index: -1;
+`
+const LoginForm = styled.div`
+    position: fixed;
+    width: 20vw;
+    display: flex;
+    top:8vh;
+    right: 0vw;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    cursor:default;
+    font-family: 'BlocExtCond';
+    font-size: calc(3px + 1.5vmin);
+    font-weight: 300;
+`
+const Button = styled.button`margin-bottom: 0.5vh;`
+const Label = styled.label`
+    display: flex;
+    padding: 0.5vh;
+`
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -53,15 +81,15 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div className="login-contain" onClick={e => this.hideLogin(e)}>
-                <div className="login">
+            <LoginContain onClick={e => this.hideLogin(e)}>
+                <LoginForm>
                     <form>
-                        <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
-                        <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
+                        <Label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></Label>
+                        <Label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></Label>
                     </form>
-                    <button onClick={this.login}>登录</button>
-                </div>
-            </div>
+                    <Button onClick={this.login}>登录</Button>
+                </LoginForm>
+            </LoginContain>
         )
     }
 }
