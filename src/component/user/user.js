@@ -3,10 +3,10 @@ import React from 'react'
 import {
 	Link
   } from "react-router-dom";
-  
+
 import Login from './user-login.js'
 import UserAvatar from './user-avatar.js'
-
+import {HeaderNav, HeaderLink} from '../../App-header.js'
 
 //const appContext = React.createContext()
 /*
@@ -40,7 +40,7 @@ class User extends React.Component {
             userShow: !this.state.userShow
         })
     }
-    getLoginState (result, msg)  {
+    setLoginState (result, msg)  {
         //第一个参数this，msg是第二个参数
         this.setState({
             user: msg
@@ -62,20 +62,20 @@ class User extends React.Component {
         let user
         if (this.state.user === null) {
             user = <React.Fragment>      
-                    <div className="header-hover" onClick={this.showLogin}>登录</div>
+                    <HeaderLink onClick={this.showLogin}>登录</HeaderLink>
                     {this.state.loginShow ? <Login parent={ this }></Login> : ''}
                 </React.Fragment>
         } else {
             user = <React.Fragment>
-                <Link to="/admin"><div className="header-hover">后台</div></Link>
-                <div className="header-hover" onClick={this.showUserAvatar}>
+                <Link to="/admin"><HeaderLink>后台</HeaderLink></Link>
+                <HeaderLink onClick={this.showUserAvatar}>
                     {this.state.user?this.state.user.userName:'登录'} 
-                </div> 
+                </HeaderLink> 
                 {this.state.userShow ? <UserAvatar parent={ this }></UserAvatar> : ''}
             </React.Fragment>   
         }
         return (
-            <React.Fragment>{user}</React.Fragment>  
+            <HeaderNav>{user}</HeaderNav>  
         )
     }
 }
