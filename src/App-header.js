@@ -1,6 +1,4 @@
 import React from 'react';
-//import './App.css';
-
 import User from './component/user/user.js'
 
 import {
@@ -21,7 +19,7 @@ const HeaderContain = styled.header`
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
     transition: all 500ms ease;
     z-index: 1;
-    background-color: ${window.location.pathname === '/'?'rgba(0,0,0,0.3)':'#fff'};
+    background-color: ${props => props.bg};
     :hover {
         background-color: #fff;
       }
@@ -72,7 +70,7 @@ class AppHeader extends React.Component {
     }
     render () {
         return (
-            <HeaderContain className={`${this.props.location.pathname === '/'? 'hide':''}`}>
+            <HeaderContain bg = {this.props.location.pathname === '/'? 'rgba(0,0,0,0.3)':'#fff'}>
                 <Header>
                     <HeaderNav>
                         <div>       
