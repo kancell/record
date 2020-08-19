@@ -2,7 +2,6 @@ import React from 'react';
 
 import AppHeader from './App-header.js'
 import AppBody from './App-body.js'
-import './App.css';
 
 class App extends React.Component {
 	

@@ -1,11 +1,12 @@
 import React from 'react'
-import './user.css'
+
 import {
 	Link
   } from "react-router-dom";
-  
-import Login from './login.js'
 
+import Login from './user-login.js'
+import UserAvatar from './user-avatar.js'
+import {HeaderNav, HeaderLink} from '../../App-header.js'
 
 //const appContext = React.createContext()
 /*
@@ -20,12 +21,11 @@ class User extends React.Component {
             user: null,
             userShow: false,
             loginShow: false,
-            childrenMsg: null
         }
         this.showLogin = this.showLogin.bind(this)
-        this.showUser = this.showUser.bind(this)
-        this.loginOut = this.loginOut.bind(this)
+        this.showUserAvatar = this.showUserAvatar.bind(this)
         this.hideAllOut = this.hideAllOut.bind(this)
+        this.loginOut = this.loginOut.bind(this)
     }
     componentDidMount() {
 
@@ -35,17 +35,22 @@ class User extends React.Component {
             loginShow: !this.state.loginShow
         })
     }
-    showUser () {
+    showUserAvatar () {
         this.setState({
             userShow: !this.state.userShow
         })
     }
-    getLoginState (result, msg)  {
+    setLoginState (result, msg)  {
         //第一个参数this，msg是第二个参数
         this.setState({
             user: msg
         })
         this.hideAllOut()
+    }
+    loginOut () {
+        this.setState({
+            user: null
+        })
     }
     hideAllOut() {
         this.setState({
@@ -53,35 +58,24 @@ class User extends React.Component {
             loginShow: false
         })
     }
-    loginOut () {
-        this.setState({
-            user: null
-        })      
-    }
     render () {
         let user
         if (this.state.user === null) {
             user = <React.Fragment>      
-                    <div className="header-hover" onClick={this.showLogin}>登录</div>
+                    <HeaderLink onClick={this.showLogin}>登录</HeaderLink>
                     {this.state.loginShow ? <Login parent={ this }></Login> : ''}
                 </React.Fragment>
         } else {
             user = <React.Fragment>
-                <Link to="/admin"><div className="header-hover">后台</div></Link>
-                <div className="header-hover" onClick={this.showUser}>
+                <Link to="/admin"><HeaderLink>后台</HeaderLink></Link>
+                <HeaderLink onClick={this.showUserAvatar}>
                     {this.state.user?this.state.user.userName:'登录'} 
-                </div> 
-                {this.state.userShow ? <div className="user-contain" onClick={e => this.showUser(e)}>
-                    <div className="user" style={{display: this.state.userShow===false?'none':''}}>
-                        <div>通知</div>
-                        <div>资料</div>
-                        <div onClick={this.loginOut}>退出</div>
-                    </div> 
-                </div> : ''}
+                </HeaderLink> 
+                {this.state.userShow ? <UserAvatar parent={ this }></UserAvatar> : ''}
             </React.Fragment>   
         }
         return (
-            <React.Fragment>{user}</React.Fragment>  
+            <HeaderNav>{user}</HeaderNav>  
         )
     }
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const LoginContain = styled.div`
+const LoginContain = styled.a`
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -18,16 +17,18 @@ const LoginForm = styled.div`
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #ebebeb;
+    border-radius: 4px;
     box-shadow: 0 5px 20px rgba(26,26,26,.1);
     cursor:default;
     font-family: 'BlocExtCond';
     font-size: calc(3px + 1.5vmin);
     font-weight: 300;
 `
-const Button = styled.button`margin-bottom: 0.5vh;`
-const Label = styled.label`
+const LoginLabel = styled.form`
     display: flex;
     padding: 0.5vh;
+    flex-direction: row;
+    label {padding: 0.5vh;}
 `
 class Login extends React.Component {
     constructor(props) {
@@ -35,8 +36,10 @@ class Login extends React.Component {
         this.state = {
             userName: '',
             passWord: '',
+            token: '',
             user: null
         }
+        this.tokencheck = this.tokencheck.bind(this)
         this.login = this.login.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -46,7 +49,7 @@ class Login extends React.Component {
         fetch('http://localhost:8080/1', {
             method: 'POST',
             mode: 'cors',
-            body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord}),
+            body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
             headers: {
                 'user-agent': 'Mozilla/4.0 MDN Example',
                 'content-type': 'application/json'
@@ -54,15 +57,40 @@ class Login extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            this.setState({user: data})
-            this.props.parent.getLoginState(this, this.state.user)
+            if (data.code === 200) {
+                this.setState({user: data.user, token: data.token})         
+                this.props.parent.setLoginState(this, this.state.user)
+            } else {
+                console.log('返回状态码：' + data.code + ' 登陆失败')
+            }
+
         })
         .catch(e => {
             console.log('错误:', e)
             this.setState({user: null})
-        })
+        })   
         
+    }
+    tokencheck() {
+        console.log(this.state.token)
+        fetch('http://localhost:8080/2', {
+            method: 'get',
+            mode: 'cors',
+            //body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
+            headers: {
+                'user-agent': 'Mozilla/4.0 MDN Example',
+                'content-type': 'application/json',
+                'token': this.state.token
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(e => {
+            console.log('错误:', e)
+            //this.setState({user: null})
+        })       
     }
     handleSubmit() {
         alert('提交的名字: ' + this.state.userName + 'this.state.userName' + this.state.passWord)
@@ -75,19 +103,20 @@ class Login extends React.Component {
         })
     }
     hideLogin(e) {
-        if(e.target.className === 'login-contain') {
+        if(e.target.name === 'LoginContain') {
             this.props.parent.showLogin(this)
         }
     }
     render() {
         return (
-            <LoginContain onClick={e => this.hideLogin(e)}>
+            <LoginContain name='LoginContain' onClick={e => this.hideLogin(e)}>
                 <LoginForm>
-                    <form>
-                        <Label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></Label>
-                        <Label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></Label>
-                    </form>
-                    <Button onClick={this.login}>登录</Button>
+                    <LoginLabel>
+                        <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
+                        <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
+                    </LoginLabel>
+                    <button onClick={this.login}>登录</button>
+                    <button onClick={this.tokencheck}>登录2</button>
                 </LoginForm>
             </LoginContain>
         )
