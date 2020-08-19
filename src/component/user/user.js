@@ -6,7 +6,7 @@ import {
 
 import Login from './user-login.js'
 import UserAvatar from './user-avatar.js'
-import {HeaderNav, HeaderLink} from '../../App-header.js'
+import {HeaderNav, HeaderLink} from '../../major/App-header.js'
 
 //const appContext = React.createContext()
 /*

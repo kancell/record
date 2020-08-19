@@ -1,5 +1,5 @@
 import React from 'react';
-import User from './component/user/user.js'
+import User from '../component/user/user.js'
 
 import {
 	Link, withRouter

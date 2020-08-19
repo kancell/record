@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Gallery from './component/gallery/gallery.js'
-import Navigation from './component/navigation/navigation.js'
-import Info from './component/info/info.js'
+import Gallery from '../views/gallery/gallery.js'
+import Navigation from '../views/navigation/navigation.js'
+import Info from '../views/info/info.js'
 
 import {
 	Switch,
