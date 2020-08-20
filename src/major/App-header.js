@@ -42,7 +42,7 @@ const HeaderInput = styled.input`
     font-size: calc(6px + 1vmin);
     background-color: #f6f6f6;
     border: 1px solid #ebebeb;`
-export const HeaderLink = styled.div`
+export const HeaderLink = styled.nav`
     :hover {
         color: #0084ff;
         cursor: pointer;
@@ -51,6 +51,7 @@ export const HeaderLink = styled.div`
         color: #0c6cc7;
         cursor: pointer;
     }
+    user-select:none;
     color: #8590a6;
     padding: 0 0.9vw;`
 const HeaderButton = styled.button`

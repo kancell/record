@@ -3,6 +3,8 @@ import birdInfo from './bird1.json';
 import './navigation.css';
 import { Link } from 'react-router-dom';
 
+import NavSprite from './navSprite.js'
+
 const info1 = [[{name: '麻雀', info: 'red'},{name: '山雀', info: 'red'}],
 [{name: '啄木鸟', info: 'red'},{name: '鹰', info: 'red'},{name: '海绵', info: 'red'}],
 [{name: '鸡', info: 'red'},{name: '鸭子', info: 'red'}],
@@ -19,7 +21,7 @@ class Navigation extends React.Component {
         this.state = {
             infoShow: 'none',
             tips: '这里可能出现...',
-            backgroundList: [{bg: require('./img/1.png')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
+            backgroundList: [{bg: require('./img/1.jpg')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')}],
             offsetheight: document.documentElement.clientHeight,
             nowIndex: 0,           //当前在第几页
             fullPageSlide: false,
@@ -87,7 +89,7 @@ class Navigation extends React.Component {
         return (
             <div className="nav">
                 {navContain}
-                {bird}
+                <NavSprite></NavSprite>
             </div>
         )
     }
