@@ -1,22 +1,32 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
-import birdInfo from './bird1.json';
+import bird from './bird.json';
 
-const BirdContain = styled.section`
+const SpriteContain = styled.section`
     display: flex;
     position: fixed;
-    right: 0%;
+    right: -15vmin;
     top: 8%;
     flex-grow: 1;
 `
-const Bird =styled.ul`
+const Sprite =styled.ul`
     display: flex;
-    width: 15vmin;
+    width: 45vmin;
+    height: 30vmin;
+    padding: 0;
+    li {
+        height: 30vmin;
+        width: 45vmin;
+        position: absolute;
+    }
 `
-const BirdButton = styled.button`
+const SpriteButton = styled.button`
+    visibility: ${props => props.show};
     outline: none;
     border: none;
+    position: absolute;
+    top: 50%;
     color: #fff;
     font-family: 'BlocExtCond';
     font-size: calc(3px + 1.4vmin);
@@ -27,8 +37,10 @@ const BirdButton = styled.button`
     border-radius: 100%;
     border: 1px solid ;
 `
-const BirdTips = styled.div`
+const SpriteTips = styled.div`
+    position: absolute;
     color: #fff;
+    width: 120px;
     font-family: 'BlocExtCond';
     font-size: calc(3px + 2.4vmin);
     font-weight: 300;
@@ -37,23 +49,22 @@ const BirdTips = styled.div`
     border-radius: 1vmin;
     background-color: rgba(0,0,0,0.3)
 `
-const SpritePolygon = styled.li`
-    height: 30vmin;
-    width: 45vmin;
-    margin-left: -15vmin;
-    position: absolute;;
-    `
-const polygonBird = birdInfo.map((item) => <SpritePolygon style={item} key={item.key}></SpritePolygon>)
+
+const polygonBird = bird.map((item) => <li style={item} key={item.key}></li>)
 
 function NavSprite(params) {
+    let [buttonShow, setButtonShow] = useState('hidden');
+    useEffect(() => {
+
+    })
     return (
-        <BirdContain>
-                <BirdTips>tips</BirdTips>
-                <BirdButton>换一批</BirdButton>
-                <Bird>
+        <SpriteContain onMouseEnter={() => setButtonShow(buttonShow = 'visible')} onMouseLeave={() => setButtonShow(buttonShow = 'hidden')}>
+                <SpriteTips>tips</SpriteTips>
+                <SpriteButton show={buttonShow} onClick={params.bgScroll}>换一批</SpriteButton>
+                <Sprite>
                     {polygonBird}
-                </Bird>
-        </BirdContain>   
+                </Sprite>
+        </SpriteContain>   
     )
 }
 
