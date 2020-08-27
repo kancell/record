@@ -1,17 +1,4 @@
-  .nav {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-    width: 100vw;
-    flex-grow: 1;
-  }
-  .nav-contain {
-    display: flex;
-    height: 100vh;
-    flex-direction: row;
-    flex-grow:1;
-    transition: all 1000ms ease;
-  }
+
   .nav-contain h2 {
     color: #fff;
     font-family: 'BlocExtCond';
