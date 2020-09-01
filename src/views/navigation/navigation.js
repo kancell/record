@@ -1,30 +1,32 @@
 import React from 'react';
 import './navigation.css';
-import { Link } from 'react-router-dom';
+
 import styled from 'styled-components'
 import NavSprite from './navSprite.js'
 
 const NavContain = styled.section`
     display: flex;
     justify-content: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 100vw;
     flex-grow: 1;
     overflow: hidden;
-
+    justify-content: flex-start;
 `
 const SliderContain = styled.section`
     display:flex;
-    width: ${props => props.wd}vw;
-    position: absolute;
-    left: ${props => props.left}%;
+`
+const ImgContain = styled.div`
+    display:flex;
+    transform: translateX(${props => props.left/5}%);
     transition: ${props => props.ts};
+    overflow: hidden;
 `
 const SliderImg = styled.div`
     display: flex;
     height: 100vh;
- 
-    width: ${props => props.wd};
+
+    width:100vw;
 
     background: center url(${props => props.bg}) no-repeat;
 
@@ -65,7 +67,7 @@ class Navigation extends React.Component {
        this.setState({transition: 'all 1000ms ease'})
         if (this.state.nowIndex > -(this.state.backgroundList.length-1) * 100) {
             this.setState({nowIndex: this.state.nowIndex - 100})
-            if (this.state.nowIndex == -(this.state.backgroundList.length-2) * 100) {
+            if (this.state.nowIndex === -(this.state.backgroundList.length-2) * 100) {
                 setTimeout(()=> {
                     this.setState({transition: ''})
                     this.setState({nowIndex: 0}) 
@@ -93,9 +95,12 @@ class Navigation extends React.Component {
         )
         return (
             <NavContain>
-               <SliderContain left = {this.state.nowIndex} wd = {this.state.backgroundList.length * 100} ts = {this.state.transition}>
-                {Slider}
-                <NavSprite bgScroll = {this.bgScroll}></NavSprite>
+               <SliderContain>
+                    <ImgContain left = {this.state.nowIndex}  wd = {this.state.backgroundList.length * 100} ts = {this.state.transition}>
+                        {Slider}
+                    </ImgContain>
+                
+                    <NavSprite bgScroll = {this.bgScroll}></NavSprite>
            
                 </SliderContain>
             </NavContain>
