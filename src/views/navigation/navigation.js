@@ -29,13 +29,20 @@ const SliderImg = styled.div`
 
 let backgroundList = [{bg: require('./img/1.jpg')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')},{bg: require('./img/1.jpg')}]
 
-function Navigation () {
+function Navigation (props) {
     let [sliderIndex, setSliderIndex] = useState(0)
     let [transition, setTransition] = useState('all 1000ms ease')
+    let [timer, setTimer] = useState(null)
     useEffect(() => {
 
     })
     let bgScroll = () => {
+        if (timer === 'running') return
+        setTimer('running')
+        setTimeout(() => {
+            setTimer(null)
+        }, 1000)
+
         if (sliderIndex < backgroundList.length - 1) {
             setSliderIndex(sliderIndex += 1)
         }
