@@ -30,8 +30,9 @@ const SliderImg = styled.div`
 let backgroundList = [{bg: require('./img/1.jpg')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')},{bg: require('./img/1.jpg')}]
 
 function Navigation (props) {
+    let animationSetting = `all ${props.duration}ms ${props.timing}`
     let [sliderIndex, setSliderIndex] = useState(0)
-    let [transition, setTransition] = useState('all 1000ms ease')
+    let [transition, setTransition] = useState(animationSetting)
     let [timer, setTimer] = useState(null)
     useEffect(() => {
 
@@ -41,7 +42,7 @@ function Navigation (props) {
         setTimer('running')
         setTimeout(() => {
             setTimer(null)
-        }, 1000)
+        }, props.duration + 1)
 
         if (sliderIndex < backgroundList.length - 1) {
             setSliderIndex(sliderIndex += 1)
@@ -51,9 +52,9 @@ function Navigation (props) {
                 setTransition('')
                 setSliderIndex(0)
                 setImmediate(()=> {
-                    setTransition('all 1000ms ease')
+                    setTransition(animationSetting)
                 })
-            },1000)              
+            },props.duration)              
         }
     }
 

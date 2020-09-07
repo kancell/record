@@ -17,7 +17,7 @@ function AppBody() {
 	return (
         <Switch>
             <Route exact path="/">
-                <Navigation></Navigation>
+                <Navigation duration={1000} timing={'ease'}></Navigation>
             </Route>
             <Route path="/b">
                 <Gallery name={query.get("name")}></Gallery>
