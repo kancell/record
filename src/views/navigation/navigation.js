@@ -33,31 +33,28 @@ function Navigation (props) {
     let animationSetting = `all ${props.duration}ms ${props.timing}`
     let [sliderIndex, setSliderIndex] = useState(0)
     let [transition, setTransition] = useState(animationSetting)
-    let [timer, setTimer] = useState(null)
+   
     useEffect(() => {
 
     })
     let bgScroll = () => {
-        if (timer === 'running') return
-        setTimer('running')
-        setTimeout(() => {
-            setTimer(null)
-        }, props.duration + 1)
 
         if (sliderIndex < backgroundList.length - 1) {
             setSliderIndex(sliderIndex += 1)
         }
+
+ 
+    }
+    let loopInterrupt = () => {
         if (sliderIndex === backgroundList.length - 1) {
-            setTimeout(()=> {
-                setTransition('')
-                setSliderIndex(0)
-                setImmediate(()=> {
-                    setTransition(animationSetting)
-                })
-            },props.duration)              
+            setTransition('')
+            setSliderIndex(0)
+            setImmediate(() => {
+                setTransition(animationSetting)
+            })
+            
         }
     }
-
     const Slider = backgroundList.map((item, index) => 
         <SliderImg bg = {item.bg} key={index}></SliderImg>
     )
@@ -65,7 +62,7 @@ function Navigation (props) {
     return (
         <NavContain>
             <SliderContain>
-                <ImgContain left = {sliderIndex} ts = {transition}>
+                <ImgContain left = {sliderIndex} ts = {transition} onTransitionEnd ={loopInterrupt}>
                     {Slider}
                 </ImgContain>           
                 <NavSprite bgScroll = {bgScroll}></NavSprite>      
