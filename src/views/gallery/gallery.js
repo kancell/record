@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GalleryContain = styled.main`
-display: flex;
-justify-content: center;
-background-color: #fff;;
-flex-grow: 1;
-padding-top: 7.5vh;`
+const GalleryContain = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-top: 1.5vh;`
 
-const GalleryMain = styled.section`
+const GalleryContent = styled.main`
     display: flex;
     width: 90vw;
-    background: #f6f6f6;
+    background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding: 10px;
@@ -29,7 +28,7 @@ const GalleryMain = styled.section`
     }
 `
 
-const PicContain= styled.div`
+const PicContain = styled.div`
     margin: 0 auto;
     column-count: 4;
     column-gap:8px;
@@ -111,11 +110,11 @@ function Gallery({ name }) {
     );
 	return (
         <GalleryContain>
-            <GalleryMain>
+            <GalleryContent>
                 <PicContain>
                     {listItems}
                 </PicContain>
-            </GalleryMain>
+            </GalleryContent>
         </GalleryContain>
 	);
 }

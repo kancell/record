@@ -24,6 +24,10 @@ const HeaderContain = styled.header`
         background-color: #fff;
       }
     `
+const HeaderFixedSpace = styled.div`
+    height: 6vh;
+    display: ${props => props.show};
+`
 const Header = styled.div`
     display: flex;
     width: 90vw;
@@ -71,21 +75,24 @@ class AppHeader extends React.Component {
     }
     render () {
         return (
-            <HeaderContain bg = {this.props.location.pathname === '/'? 'rgba(0,0,0,0.3)':'#fff'}>
-                <Header>
-                    <HeaderNav>
-                        <div>       
-                            <Link to="/"><HeaderLink>场景导航</HeaderLink></Link>
-                            <Link to="/b"><HeaderLink>瀑流图库</HeaderLink></Link>
-                            <Link to="/c"><HeaderLink>信息</HeaderLink></Link>
-                            <Link to="/d"><HeaderLink>文章</HeaderLink></Link>    
-                        </div>
-                        <HeaderInput type = "text" placeholder="搜索感兴趣的内容..."/>
-                        <HeaderButton>查询</HeaderButton>        
-                    </HeaderNav>
-                    <User></User>
-                </Header>
-            </HeaderContain>
+            <React.Fragment>
+                <HeaderContain bg = {this.props.location.pathname === '/'? 'rgba(0,0,0,0.3)':'#fff'}>
+                    <Header>
+                        <HeaderNav>
+                            <div>       
+                                <Link to="/"><HeaderLink>场景导航</HeaderLink></Link>
+                                <Link to="/b"><HeaderLink>瀑流图库</HeaderLink></Link>
+                                <Link to="/c"><HeaderLink>信息</HeaderLink></Link>
+                                <Link to="/d"><HeaderLink>文章</HeaderLink></Link>    
+                            </div>
+                            <HeaderInput type = "text" placeholder="搜索感兴趣的内容..."/>
+                            <HeaderButton>查询</HeaderButton>        
+                        </HeaderNav>
+                        <User></User>
+                    </Header>
+                </HeaderContain>
+                <HeaderFixedSpace show = {this.props.location.pathname === '/'? 'none':'block'}></HeaderFixedSpace>
+            </React.Fragment>
         )
     }
 }

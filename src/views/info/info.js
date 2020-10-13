@@ -1,18 +1,17 @@
 import React from 'react'
 
 import styled from 'styled-components'
-const InfoContain = styled.section`
+const InfoContain = styled.div`
     display: flex;
     justify-content: center;
-    background-color: #fff;;
     flex-grow: 1;
-    padding-top: 7.5vh;`
+    margin-top: 1.5vh;`
 
-const InfoContent = styled.div`
+const InfoContent = styled.main`
     display: flex;
     flex-direction: column;
     width: 90vw;
-    background: #f6f6f6;
+    background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding: 10px;
