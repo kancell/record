@@ -25,7 +25,7 @@ const SliderImg = styled.div`
     height: 100vh;
     width:100vw;
     background: center url(${props => props.bg}) no-repeat;
-    background-size:  contain;
+    background-size:  cover;
   `
 
 let backgroundList = [{bg: require('./img/1.jpg')},{bg: require('./img/2.png')},{bg: require('./img/3.png')},{bg: require('./img/4.png')},{bg: require('./img/1.jpg')}]
