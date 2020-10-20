@@ -28,7 +28,7 @@ class User extends React.Component {
         this.loginOut = this.loginOut.bind(this)
     }
     componentDidMount() {
-
+        console.log(localStorage.getItem('recordtoken'))
     }
     showLogin () {
         this.setState({

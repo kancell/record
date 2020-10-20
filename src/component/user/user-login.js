@@ -60,10 +60,10 @@ class Login extends React.Component {
             if (data.code === 200) {
                 this.setState({user: data.user, token: data.token})         
                 this.props.parent.setLoginState(this, this.state.user)
+                localStorage.setItem('recordtoken', data.token);
             } else {
                 console.log('返回状态码：' + data.code + ' 登陆失败')
             }
-
         })
         .catch(e => {
             console.log('错误:', e)
@@ -72,7 +72,7 @@ class Login extends React.Component {
         
     }
     tokencheck() {
-        console.log(this.state.token)
+        console.log(localStorage.getItem('recordtoken'))
         fetch('http://localhost:8080/2', {
             method: 'get',
             mode: 'cors',
@@ -90,7 +90,7 @@ class Login extends React.Component {
         .catch(e => {
             console.log('错误:', e)
             //this.setState({user: null})
-        })       
+        }) 
     }
     handleSubmit() {
         alert('提交的名字: ' + this.state.userName + 'this.state.userName' + this.state.passWord)
