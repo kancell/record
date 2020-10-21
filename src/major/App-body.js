@@ -29,6 +29,9 @@ function AppBody() {
             <Route path="/d">
                 <ArticleList></ArticleList>
             </Route>
+            <Route path="article/:id">
+                <ArticleList></ArticleList>
+            </Route>
         </Switch>	
 
 	);

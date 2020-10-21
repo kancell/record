@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import {
+	Link
+  } from "react-router-dom";
 
 const ArticleContain = styled.article`
     width: 16vw;
@@ -10,13 +13,15 @@ const ArticleContain = styled.article`
 
 `
 
-function Article (props) {
+function List (props) {
     return (
         <ArticleContain>
-            <p>{props.title}</p>
-            <p>日期 2020/10/19</p>
+            <Link to={`/article/${props.title}`}>
+                <p>{props.title}</p>
+                <p>日期 2020/10/19</p>
+            </Link>
         </ArticleContain>
     )
 }
 
-export default Article
+export default List
