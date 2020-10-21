@@ -1,12 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import {
-  BrowserRouter as Router,
 
-  useParams
-} from "react-router-dom";
 import List from './list.js'
-//let { id } = useParams();
+
 const ArticleListContain = styled.div`
     display: flex;
 
@@ -24,14 +20,11 @@ const ArticleListContent = styled.main`
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding: 10px;
     justify-content: center;
-    
     margin-top: 1.5vh;
     div {
-  
+        width: 90%;
         display: flex;
         flex-wrap: wrap;
-
-        flex-direction: row;
     }
 `
 const ArticleListBanner = styled.div`
@@ -42,8 +35,10 @@ const ArticleListBanner = styled.div`
 `
 let article = [{title:'react访问绝对路径中资源'}, {title:'flex布局下垂直与水平居中方式'},{title:'react下使用styled-components组织css优劣简介'},
 {title:'react-router-dom 5.0文档翻译'}]
+
 let bg = require('./img/1.jpg')
 function ArticleList (props) {
+
     const list = article.map((item) =>
         <List key={item.title} title={item.title}></List>
     );
