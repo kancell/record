@@ -3,7 +3,7 @@ import React from 'react';
 import Gallery from '../views/gallery/gallery.js'
 import Navigation from '../views/navigation/navigation.js'
 import Info from '../views/info/info.js'
-import Article from '../views/article/article.js'
+import ArticleList from '../views/article/articlelist.js'
 
 import {
 	Switch,
@@ -27,7 +27,7 @@ function AppBody() {
                 <Info></Info>
             </Route>
             <Route path="/d">
-                <Article></Article>
+                <ArticleList></ArticleList>
             </Route>
         </Switch>	
 
