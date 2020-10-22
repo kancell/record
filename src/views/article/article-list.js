@@ -21,11 +21,7 @@ const ArticleListContent = styled.main`
     padding: 10px;
     justify-content: center;
     margin-top: 1.5vh;
-    div {
-        width: 90%;
-        display: flex;
-        flex-wrap: wrap;
-    }
+
 `
 const ArticleListBanner = styled.div`
     width:100vw;
@@ -46,9 +42,9 @@ function ArticleList (props) {
         <ArticleListContain>          
             <ArticleListBanner bg = {bg}></ArticleListBanner>
             <ArticleListContent>
-                <div>
+            
                     {list}
-                </div>
+              
             </ArticleListContent>
         </ArticleListContain>
     )

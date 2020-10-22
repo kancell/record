@@ -28,7 +28,9 @@ class User extends React.Component {
         this.loginOut = this.loginOut.bind(this)
     }
     componentDidMount() {
-        console.log(localStorage.getItem('recordtoken'))
+        if (localStorage.getItem('recordtoken') !== 'null') {
+            this.setLoginState(this, JSON.parse(localStorage.getItem('recordtoken')).user)
+        }        
     }
     showLogin () {
         this.setState({
@@ -46,11 +48,13 @@ class User extends React.Component {
             user: msg
         })
         this.hideAllOut()
+
     }
     loginOut () {
         this.setState({
             user: null
         })
+        localStorage.setItem('recordtoken', null);
     }
     hideAllOut() {
         this.setState({

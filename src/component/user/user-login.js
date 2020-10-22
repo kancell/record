@@ -58,9 +58,10 @@ class Login extends React.Component {
         .then(res => res.json())
         .then(data => {
             if (data.code === 200) {
+                console.log(data)
                 this.setState({user: data.user, token: data.token})         
                 this.props.parent.setLoginState(this, this.state.user)
-                localStorage.setItem('recordtoken', data.token);
+                localStorage.setItem('recordtoken', JSON.stringify(data));
             } else {
                 console.log('返回状态码：' + data.code + ' 登陆失败')
             }
