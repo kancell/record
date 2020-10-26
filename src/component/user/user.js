@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
 	Link
   } from "react-router-dom";
@@ -29,9 +28,8 @@ class User extends React.Component {
     }
     componentDidMount() {
         if (localStorage.getItem('recordtoken') !== null) {
-                this.setLoginState(this, JSON.parse(localStorage.getItem('recordtoken')).user)
-        }   
-      
+            this.setLoginState(this, JSON.parse(localStorage.getItem('recordtoken')).user)
+        }      
     }
     showLogin () {
         this.setState({

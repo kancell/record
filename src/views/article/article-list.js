@@ -5,22 +5,21 @@ import List from './list.js'
 
 const ArticleListContain = styled.div`
     display: flex;
-
     flex-direction: column;
     align-items:center;
     flex-grow: 1;
     margin-top: 0vh;`
 
-const ArticleListContent = styled.main`
+const ArticleListContent = styled.ul`
     display: flex;
     flex-direction: row;
-    width: 61.8vw;
+    width: 64vw;
+    flex-wrap: wrap;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding: 10px;
-    justify-content: center;
-    margin-top: 1.5vh;
+    align-content: stretch;
 
 `
 const ArticleListBanner = styled.div`
@@ -30,7 +29,8 @@ const ArticleListBanner = styled.div`
     background-size: cover;
 `
 let article = [{title:'react访问绝对路径中资源'}, {title:'flex布局下垂直与水平居中方式'},{title:'react下使用styled-components组织css优劣简介'},
-{title:'react-router-dom 5.0文档翻译'}]
+{title:'react-router-dom 5.0文档翻译'},
+{title:'react-router-dom 5.0文档翻00译'}]
 
 let bg = require('./img/1.jpg')
 function ArticleList (props) {
@@ -41,10 +41,8 @@ function ArticleList (props) {
     return (
         <ArticleListContain>          
             <ArticleListBanner bg = {bg}></ArticleListBanner>
-            <ArticleListContent>
-            
-                    {list}
-              
+            <ArticleListContent>         
+                {list}             
             </ArticleListContent>
         </ArticleListContain>
     )
