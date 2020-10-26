@@ -31,7 +31,25 @@ const ArticleContents = styled.main`
     }
 `
 function ArticleContent(params) {
+    fetch('http://v.juhe.cn/joke/content/list.php?key=您申请的KEY&page=2&pagesize=10&sort=asc&time=14187452377fe74f63adb850d695b873bcd97de1f9', {
+        method: 'get',
+        mode: 'cors',
+        //body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
+        headers: {
+            'user-agent': 'Mozilla/4.0 MDN Example',
+            'content-type': 'application/json',
+        },
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(e => {
+        console.log('错误:', e)
+        //this.setState({user: null})
+    }) 
     let { id } = useParams()
+
     return (
         <ArticleContentContain>
             <ArticleContents>{id}</ArticleContents>
