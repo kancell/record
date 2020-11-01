@@ -8,13 +8,15 @@ const ListContain = styled.li`
     padding-top: 1.5vh;
     width: 16vw;
     display:flex;
-    justify-content: center;
     a {
         width: 91.8%;
+        display:flex;
         height:  100%;
+        flex-direction: column;
+   
     }
     p {
-        margin:1vh 0 1vh 0;
+        margin:0.8vh 0 0 0;
         padding: 0;
         overflow:hidden;
         white-space:nowrap;
@@ -24,27 +26,34 @@ const ListContain = styled.li`
         text-align: center;
     }
 `
-const ListPic = styled.div`
+const PicContain = styled.div`
     display: flex;
-    justify-content: center;
-    span {
-        width: 100px;
-        height: 140px;
-        background-color: rgb(168, 200, 126);
-    }
+    justify-content: center; 
+    align-items: center; 
+}
 
 `
+const BookPic = styled.div`
+    width: 100px;
+    height: 140px;      
+    background: center center url(${props => props.bg}) no-repeat;
+    background-size: cover;
+}
 
+`
 function List (props) {
     return (
         <ListContain>
             <Link to={`/e/${props.title}`}>
-                <ListPic><span/></ListPic>
+                <PicContain>
+                    <BookPic bg = {props.bookImg}></BookPic>
+                </PicContain>
                 <p>{props.title}</p>
                 <p>日期 2020/10/19</p>
             </Link>
         </ListContain>
     )
+
 }
 
 export default List

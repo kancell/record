@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState , useEffect } from 'react'
 import styled from 'styled-components';
 import {
     useParams
@@ -13,46 +13,61 @@ const ArticleContentContain = styled.div`
 
 const ArticleContents = styled.main`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 61.8vw;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);
     padding: 10px;
-    justify-content: center;
-    
+    align-items: center;  
     margin-top: 1.5vh;
     div {
-  
         display: flex;
         flex-wrap: wrap;
-
         flex-direction: row;
     }
 `
 function ArticleContent(params) {
-    fetch('http://v.juhe.cn/joke/content/list.php?key=您申请的KEY&page=2&pagesize=10&sort=asc&time=14187452377fe74f63adb850d695b873bcd97de1f9', {
-        method: 'get',
-        mode: 'cors',
-        //body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
-        headers: {
-            'user-agent': 'Mozilla/4.0 MDN Example',
-            'content-type': 'application/json',
-        },
+    const [content, setContent] = useState(null)
+
+    useEffect(() => {
+        let loginState = null
+        if (localStorage.getItem('recordtoken') !== null) {
+            console.log(JSON.parse(localStorage.getItem('recordtoken')))
+            loginState = JSON.parse(localStorage.getItem('recordtoken')).token
+            //loginState = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ7XCJpZFwiOlwiNDM5NlwifSJ9.DLoyHLDJG2wSaDiTBtf-yA3xJOYhQzJIUIhsrnwPMVk"
+            //setLoginState(JSON.parse(localStorage.getItem('recordtoken')).user)
+        }  
+        fetch('http://localhost:8080/2', {
+            method: 'get',
+            mode: 'cors',
+            //body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
+            headers: {
+                'user-agent': 'Mozilla/4.0 MDN Example',
+                'content-type': 'application/json',
+                'token': loginState
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            setContent(data.status)
+            console.log(data)
+        })
+        .catch(e => {
+            console.log('错误:', e)
+            //this.setState({user: null})
+        }) 
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data)
-    })
-    .catch(e => {
-        console.log('错误:', e)
-        //this.setState({user: null})
-    }) 
+
+
     let { id } = useParams()
 
     return (
         <ArticleContentContain>
-            <ArticleContents>{id}</ArticleContents>
+            <ArticleContents>
+                <h2>{id}</h2>
+                <p>{content}</p>
+            </ArticleContents>
         </ArticleContentContain>
     )
 }

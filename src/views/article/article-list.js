@@ -24,7 +24,7 @@ const ArticleListContent = styled.ul`
 `
 const ArticleListBanner = styled.div`
     width:100vw;
-    height:20vh;
+    height:40vh;
     background: center url(${props => props.bg}) no-repeat;
     background-size: cover;
 `
@@ -32,11 +32,12 @@ let article = [{title:'react访问绝对路径中资源'}, {title:'flex布局下
 {title:'react-router-dom 5.0文档翻译'},
 {title:'react-router-dom 5.0文档翻00译'}]
 
-let bg = require('./img/1.jpg')
-function ArticleList (props) {
 
+function ArticleList (props) {
+    let bg = require('./img/1.jpg')
+    let bookImg = require('./img/book.jpg')
     const list = article.map((item) =>
-        <List key={item.title} title={item.title}></List>
+        <List key={item.title} title={item.title} bookImg = {bookImg}></List>
     );
     return (
         <ArticleListContain>          
