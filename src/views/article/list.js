@@ -38,6 +38,7 @@ const BookPic = styled.div`
     height: 140px;      
     background: center center url(${props => props.bg}) no-repeat;
     background-size: cover;
+    border-radius: 4px;
 }
 
 `
@@ -53,7 +54,6 @@ function List (props) {
             </Link>
         </ListContain>
     )
-
 }
 
 export default List

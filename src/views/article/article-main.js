@@ -33,27 +33,29 @@ function ArticleContent(params) {
     useEffect(() => {
         let loginState = null
         if (localStorage.getItem('recordtoken') !== null) {
-            console.log(JSON.parse(localStorage.getItem('recordtoken')))
             loginState = JSON.parse(localStorage.getItem('recordtoken')).token
             //loginState = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ7XCJpZFwiOlwiNDM5NlwifSJ9.DLoyHLDJG2wSaDiTBtf-yA3xJOYhQzJIUIhsrnwPMVk"
             //setLoginState(JSON.parse(localStorage.getItem('recordtoken')).user)
-        }  
+        }
         fetch('http://localhost:8080/2', {
             method: 'get',
             mode: 'cors',
-            //body: JSON.stringify({userName: this.state.userName, passWord: this.state.passWord, id: 4396}),
+            redirect: 'manual',
             headers: {
                 'user-agent': 'Mozilla/4.0 MDN Example',
                 'content-type': 'application/json',
-                'token': loginState
+                'token': loginState,
             },
         })
-        .then(res => res.json())
-        .then(data => {
-            setContent(data.status)
-            console.log(data)
+        .then(res => {
+            console.log(res);
+            //window.location.reload();
         })
-        .catch(e => {
+        .then(data => {
+            //setContent(data.status)
+            //console.log(data)
+        })
+       .catch(e => {
             console.log('错误:', e)
             //this.setState({user: null})
         }) 
