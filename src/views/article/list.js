@@ -6,14 +6,14 @@ import {
 
 const ListContain = styled.li`
     padding-top: 1.5vh;
-    width: 16vw;
     display:flex;
+    justify-content:center;
     a {
         width: 91.8%;
         display:flex;
         height:  100%;
         flex-direction: column;
-   
+        align-items: center; 
     }
     p {
         margin:0.8vh 0 0 0;

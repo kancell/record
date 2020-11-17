@@ -13,7 +13,7 @@ const LoginForm = styled.div`
     width: 20vw;
     display: flex;
     top:8vh;
-    right: 0vw;
+    right: 10vw;
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #ebebeb;
@@ -29,6 +29,13 @@ const LoginLabel = styled.form`
     padding: 0.5vh;
     flex-direction: row;
     label {padding: 0.5vh;}
+`
+const LoginButton = styled.div`
+    color: #fff;
+    background: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 0 rgba(0,0,0,.045);
 `
 class Login extends React.Component {
     constructor(props) {
@@ -116,8 +123,10 @@ class Login extends React.Component {
                         <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
                         <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
                     </LoginLabel>
-                    <button onClick={this.login}>登录</button>
-                    <button onClick={this.tokencheck}>登录2</button>
+                    <LoginButton>
+                        <button onClick={this.login}>登录</button>
+                        <button onClick={this.tokencheck}>登录2</button>
+                    </LoginButton>
                 </LoginForm>
             </LoginContain>
         )
