@@ -40,7 +40,6 @@ function ArticleContent(params) {
         fetch('http://localhost:8080/2', {
             method: 'get',
             mode: 'cors',
-            redirect: 'manual',
             headers: {
                 'user-agent': 'Mozilla/4.0 MDN Example',
                 'content-type': 'application/json',
@@ -52,7 +51,7 @@ function ArticleContent(params) {
             //window.location.reload();
         })
         .then(data => {
-            //setContent(data.status)
+            setContent(data.status)
             //console.log(data)
         })
        .catch(e => {

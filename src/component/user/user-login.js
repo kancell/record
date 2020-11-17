@@ -80,7 +80,6 @@ class Login extends React.Component {
         
     }
     tokencheck() {
-        console.log(localStorage.getItem('recordtoken'))
         fetch('http://localhost:8080/2', {
             method: 'get',
             mode: 'cors',

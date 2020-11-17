@@ -34,7 +34,7 @@ let article = [
 {title:'react下使用styled-components组织css优劣简介'},
 {title:'react-router-dom 5.0文档翻译'},],
 [{title:'react1'},{title:'react2'},{title:'react3'},{title:'react4'}],
-[{title:'react5'},{title:'react6'},{title:'react7'},{title:'react8'}]
+[{title:'react5'},{title:'react6'},{title:'readddddddddddddddddddddct7'}]
 ]
 
 
@@ -42,6 +42,7 @@ function ArticleList (props) {
     let bg = require('./img/1.jpg')
     let bookImg = require('./img/book.jpg')
     const content = article.map((item, index) => {
+        if (item.length%4 !== 0) item.push({title: "null"})
         let list = item.map((list) => {
             return <List key={list.title} title={list.title} bookImg = {bookImg}></List>
         })

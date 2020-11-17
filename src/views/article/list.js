@@ -16,8 +16,9 @@ const ListContain = styled.li`
         align-items: center; 
     }
     p {
-        margin:0.8vh 0 0 0;
+        margin: 0.8vh 0 0 0;
         padding: 0;
+        width: 200px;
         overflow:hidden;
         white-space:nowrap;
         text-overflow:ellipsis;
@@ -30,7 +31,6 @@ const PicContain = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center; 
-}
 
 `
 const BookPic = styled.div`
@@ -39,10 +39,23 @@ const BookPic = styled.div`
     background: center center url(${props => props.bg}) no-repeat;
     background-size: cover;
     border-radius: 4px;
-}
-
 `
+
 function List (props) {
+    if (props.title === "null") {
+        console.log(1)
+        return (
+            <ListContain  style={{pointerEvents:" none", opacity: 0}}>
+            <span>
+                <PicContain>
+                    <BookPic></BookPic>
+                </PicContain>
+                <p>null</p>
+                <p>日期 0000/00/00</p>
+            </span>
+        </ListContain>
+        )
+    } else
     return (
         <ListContain>
             <Link to={`/e/${props.title}`}>
