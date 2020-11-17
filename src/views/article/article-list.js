@@ -42,7 +42,11 @@ function ArticleList (props) {
     let bg = require('./img/1.jpg')
     let bookImg = require('./img/book.jpg')
     const content = article.map((item, index) => {
-        if (item.length%4 !== 0) item.push({title: "null"})
+        if (item.length%4 !== 0) {
+            for (let index = 0; index < item.length%4; index++) {
+                item.push({title: "null"})
+            }
+        }
         let list = item.map((list) => {
             return <List key={list.title} title={list.title} bookImg = {bookImg}></List>
         })
