@@ -1,3 +1,2 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-noting'hnotingh
-
+正常组件 z-index:0
+遮罩层 z-index:0

@@ -5,6 +5,7 @@ import Navigation from '../views/navigation/navigation.js'
 import Info from '../views/info/info.js'
 import ArticleList from '../views/article/article-list.js'
 import ArticleContent from '../views/article/article-main.js'
+import FormTest from '../views/formTest/form-test.js'
 
 import {
 	Switch,
@@ -32,6 +33,9 @@ function AppBody() {
             </Route>
             <Route path={`/e/:id`} >
                 <ArticleContent></ArticleContent>
+            </Route>
+            <Route path="/f">
+                <FormTest></FormTest>
             </Route>
         </Switch>	
 

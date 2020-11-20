@@ -2,40 +2,68 @@ import React from 'react'
 import styled from 'styled-components'
 const LoginContain = styled.a`
     position: fixed;
+    display: flex;
     width: 100vw;
     height: 100vh;
     bottom:0;
     left:0px;
-    z-index: -1;
+    background: #669999;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    justify-content: flex-end;
 `
 const LoginForm = styled.div`
-    position: fixed;
-    width: 20vw;
-    display: flex;
-    top:8vh;
-    right: 10vw;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    display:flex;
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #ebebeb;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 5px 20px rgba(26,26,26,.1);
     cursor:default;
     font-family: 'BlocExtCond';
     font-size: calc(3px + 1.5vmin);
     font-weight: 300;
+    height: 61.8vh;
 `
 const LoginLabel = styled.form`
     display: flex;
     padding: 0.5vh;
-    flex-direction: row;
-    label {padding: 0.5vh;}
+    flex-direction: column;
+    
+    label {
+        border-radius: 4px;
+        display: flex;
+        width:230px;
+        height:44.4px;
+        flex-direction: row;
+        margin: 0.2vh 0 0.2vh 0;
+        padding: 0.5vh;
+        align-items: center;
+        border: 1px solid #2DA7E0;
+    }
+`
+const LoginInput = styled.input`
+    border: none;
+    outline: none; 
+    width:170px;
+    height:17.6px;
+    padding: 10px;
+    :focus {
+        outline: none; 
+    }
 `
 const LoginButton = styled.div`
-    color: #fff;
-    background: #1890ff;
-    border-color: #1890ff;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.12);
-    box-shadow: 0 2px 0 rgba(0,0,0,.045);
+    justify-content: space-around;
+    button {
+        color: #fff;
+        background: #1890ff;
+        border-color: #1890ff;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.12);
+        box-shadow: 0 2px 0 rgba(0,0,0,.045);      
+    }
+
 `
 class Login extends React.Component {
     constructor(props) {
@@ -77,7 +105,6 @@ class Login extends React.Component {
             console.log('错误:', e)
             this.setState({user: null})
         })   
-        
     }
     tokencheck() {
         fetch('http://localhost:8080/2', {
@@ -119,8 +146,8 @@ class Login extends React.Component {
             <LoginContain name='LoginContain' onClick={e => this.hideLogin(e)}>
                 <LoginForm>
                     <LoginLabel>
-                        <label>账号:<input name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
-                        <label>密码:<input name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
+                        <label><span>账号:</span><LoginInput name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
+                        <label><span>密码:</span><LoginInput name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
                     </LoginLabel>
                     <LoginButton>
                         <button onClick={this.login}>登录</button>

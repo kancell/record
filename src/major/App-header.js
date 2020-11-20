@@ -83,7 +83,8 @@ class AppHeader extends React.Component {
                                 <Link to="/"><HeaderLink>场景导航</HeaderLink></Link>
                                 <Link to="/b"><HeaderLink>瀑流图库</HeaderLink></Link>
                                 <Link to="/c"><HeaderLink>信息</HeaderLink></Link>
-                                <Link to="/d"><HeaderLink>文章</HeaderLink></Link>    
+                                <Link to="/d"><HeaderLink>文章</HeaderLink></Link>
+                                <Link to="/f"><HeaderLink>表单</HeaderLink></Link>  
                             </div>
                             <HeaderInput type = "text" placeholder="搜索感兴趣的内容..."/>
                             <HeaderButton>查询</HeaderButton>        
