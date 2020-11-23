@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import List from './list.js'
+import Banner from '../../component/banner/banner.js'
 
 const ArticleListContain = styled.div`
     display: flex;
@@ -22,12 +23,7 @@ const ArticleListContent = styled.ul`
     margin: 10px 0  10px 0 ;
 
 `
-const ArticleListBanner = styled.div`
-    width:100vw;
-    height:40vh;
-    background: center url(${props => props.bg}) no-repeat;
-    background-size: cover;
-`
+
 let article = [
 [{title:'react访问绝对路径中资源'},
 {title:'flex布局下垂直与水平居中方式'},
@@ -39,7 +35,6 @@ let article = [
 
 
 function ArticleList (props) {
-    let bg = require('./img/1.jpg')
     let bookImg = require('./img/book.jpg')
     const content = article.map((item, index) => {
         if (item.length%4 !== 0) {
@@ -58,7 +53,7 @@ function ArticleList (props) {
     })
     return (
         <ArticleListContain>          
-            <ArticleListBanner bg = {bg}></ArticleListBanner>
+            <Banner bg = 'banner'></Banner>
             {content}
         </ArticleListContain>
     )

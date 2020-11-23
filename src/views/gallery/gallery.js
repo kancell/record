@@ -9,7 +9,7 @@ const GalleryContain = styled.div`
 
 const GalleryContent = styled.main`
     display: flex;
-    width: 90vw;
+    width: 61.8vw;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);

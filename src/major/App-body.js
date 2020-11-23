@@ -3,8 +3,8 @@ import React from 'react';
 import Gallery from '../views/gallery/gallery.js'
 import Navigation from '../views/navigation/navigation.js'
 import Info from '../views/info/info.js'
-import ArticleList from '../views/article/article-list.js'
-import ArticleContent from '../views/article/article-main.js'
+import ArticleList from '../views/article/article.js'
+import ArticleContent from '../views/article/content.js'
 import FormTest from '../views/formTest/form-test.js'
 
 import {

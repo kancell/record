@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AppHeader from './major/App-header.js'
-import AppBody from './major/App-body.js'
+import AppHeader from './major/app-header.js'
+import AppBody from './major/app-body.js'
 
 class App extends React.Component {
 	

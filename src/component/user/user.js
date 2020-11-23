@@ -5,7 +5,7 @@ import {
 
 import Login from './user-login.js'
 import UserAvatar from './user-avatar.js'
-import {HeaderNav, HeaderLink} from '../../major/App-header.js'
+import {HeaderNav, HeaderLink} from '../../major/app-header.js'
 
 //const appContext = React.createContext()
 /*

@@ -43,7 +43,6 @@ const BookPic = styled.div`
 
 function List (props) {
     if (props.title === "null") {
-        console.log(1)
         return (
             <ListContain  style={{pointerEvents:" none", opacity: 0}}>
             <span>
