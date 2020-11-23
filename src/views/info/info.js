@@ -10,7 +10,7 @@ const InfoContain = styled.div`
 const InfoContent = styled.main`
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 61.8vw;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 5px 2px rgba(26,26,26,.1);

@@ -19,7 +19,7 @@ const LoginForm = styled.div`
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #ebebeb;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 5px 20px rgba(26,26,26,.1);
     cursor:default;
     font-family: 'BlocExtCond';
@@ -27,32 +27,29 @@ const LoginForm = styled.div`
     font-weight: 300;
     height: 61.8vh;
 `
-const LoginLabel = styled.form`
+const LoginLabel = styled.label`
+    border-radius: px;
     display: flex;
-    padding: 0.5vh;
-    flex-direction: column;
-    
-    label {
-        border-radius: 4px;
-        display: flex;
-        width:230px;
-        height:44.4px;
-        flex-direction: row;
-        margin: 0.2vh 0 0.2vh 0;
-        padding: 0.5vh;
-        align-items: center;
-        border: 1px solid #2DA7E0;
+    width:230px;
+    height:34.4px;
+    flex-direction: row;
+    margin: 4px 20px 4px 20px;
+    align-items: center;
+    border: 1px solid #BBBBBB;
+    span {
+        width: 48px;
+        text-align: center;
+    }
+    :focus {
+        border: 1px solid #red
     }
 `
 const LoginInput = styled.input`
     border: none;
     outline: none; 
     width:170px;
-    height:17.6px;
-    padding: 10px;
-    :focus {
-        outline: none; 
-    }
+    height:17.6px; 
+
 `
 const LoginButton = styled.div`
     justify-content: space-around;
@@ -145,10 +142,8 @@ class Login extends React.Component {
         return (
             <LoginContain name='LoginContain' onClick={e => this.hideLogin(e)}>
                 <LoginForm>
-                    <LoginLabel>
-                        <label><span>账号:</span><LoginInput name='userName' value={this.state.userName} onChange={this.handleChange} /></label>
-                        <label><span>密码:</span><LoginInput name='passWord' value={this.state.passWord} onChange={this.handleChange} /></label>
-                    </LoginLabel>
+                    <LoginLabel><span>账号:</span><LoginInput name='userName' value={this.state.userName} onChange={this.handleChange} /></LoginLabel>
+                    <LoginLabel><span>密码:</span><LoginInput name='passWord' value={this.state.passWord} onChange={this.handleChange} /></LoginLabel>
                     <LoginButton>
                         <button onClick={this.login}>登录</button>
                         <button onClick={this.tokencheck}>登录2</button>
